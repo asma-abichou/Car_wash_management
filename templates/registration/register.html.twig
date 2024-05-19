@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Register!{% endblock %}
 
 {% block body %}
 <body class="hold-transition register-page">
 <div class="register-box">
     <div class="register-logo">
-        <a href="{{ path('home_page') }}"><b>Admin</b>LTE</a>
+        <a href="{{ path('home_page') }}"><b>Admin</b>Register</a>
     </div>
 
     <div class="card">
         <div class="card-body register-card-body">
-            <p class="login-box-msg">Register a new membership</p>
+            <p class="login-box-msg">Register a new Owner</p>
 
             <form action="{{ path('home_page') }}" method="post">
                 {{ form_errors(registrationForm) }}
@@ -57,19 +57,6 @@
                     </div>
                 </div>
 
-              {#  <div class="input-group mb-3">
-                    {{ form_widget(registrationForm.plainPassword.second, {
-                        'attr': {
-                            'class': 'form-control',
-                            'placeholder': 'Retype password'
-                        }
-                    }) }}
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
-                    </div>
-                </div>#}
 
                 <div class="row">
                     <div class="col-8">
@@ -84,19 +71,6 @@
                     </div>
                 </div>
             </form>
-
-            <div class="social-auth-links text-center">
-                <p>- OR -</p>
-                <a href="#" class="btn btn-block btn-primary">
-                    <i class="fab fa-facebook mr-2"></i>
-                    Sign up using Facebook
-                </a>
-                <a href="#" class="btn btn-block btn-danger">
-                    <i class="fab fa-google-plus mr-2"></i>
-                    Sign up using Google+
-                </a>
-            </div>
-
             <a href="#" class="text-center">I already have a membership</a>
         </div>
         <!-- /.form-box -->
