@@ -1,36 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-    Home
-{% endblock  %}
-
 {% block body %}
-    <body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
-        {% include 'navBar.html.twig' %}
-        {% include 'sideBar.html.twig' %}
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
+    <body class="hold-transition sidebar-mini">
+        <div class="wrapper">
+            {% include 'navBar.html.twig' %}
+            {% include 'sideBar.html.twig' %}
+        <!-- Content Header (Page header) -->
+            <section class="content-header">
                 <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
-                            </ol>
+                    <div class="row">
+                    <!-- /.col -->
+                        <div class="col-md-8 offset-md-2">
+                        <!-- Profile Image -->
+                            <div class="card card-primary card-outline">
+
+                                <h1>Dashboard Overview</h1>
+                                <div>
+                                    <h2>Total Registered Users: 100</h2>
+                                    <h2>Active Car Wash Stations: 4</h2>
+                                    <h2>Current Wait Times:</h2>
+                                    <ul>
+                                            <li>10 minutes</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
-    </div>
-    <section class="content">
-        <div class="container-fluid">
-        </div>
-    </section>
     </body>
 {% endblock %}
