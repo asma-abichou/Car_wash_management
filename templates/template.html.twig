@@ -1,33 +1,51 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <body class="hold-transition sidebar-mini">
+    <body>
+    <div class="container-fluid">
         <div class="wrapper">
             {% include 'navBar.html.twig' %}
             {% include 'sideBar.html.twig' %}
-        <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row">
-                    <!-- /.col -->
-                        <div class="col-md-8 offset-md-2">
-                        <!-- Profile Image -->
-                            <div class="card card-primary card-outline">
-
-                                <h1>Dashboard Overview</h1>
-                                <div>
-                                    <h2>Total Registered Users: 100</h2>
-                                    <h2>Active Car Wash Stations: 4</h2>
-                                    <h2>Current Wait Times:</h2>
-                                    <ul>
-                                            <li>10 minutes</li>
-                                    </ul>
+            <div class="content-wrapper">
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">
+                                        <i class="fas fa-chart-line fa-3x"></i>
+                                        <h3>Performance Metrics</h3>
+                                        <!-- Add performance data and charts here -->
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col-lg-4">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">
+                                        <i class="fas fa-users fa-3x"></i>
+                                        <h3>Employee Management</h3>
+                                        <!-- Display employee schedules and tasks -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card bg-info text-white mb-4">
+                                    <div class="card-body">
+                                        <i class="fas fa-dollar-sign fa-3x"></i>
+                                        <h3>Financial Overview</h3>
+                                        <!-- Show financial data and insights -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional sections for other features -->
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+                <section class="content">
+                    <!-- Add sections for station utilization, customer feedback, reservations, etc. -->
+                </section>
+            </div>
         </div>
+    </div>
     </body>
 {% endblock %}
