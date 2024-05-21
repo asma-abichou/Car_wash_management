@@ -1,10 +1,12 @@
 {% block sideBar %}
      <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
+       <a href="index3.html" class="brand-link">
+         {#<img src="{{ asset('dist/img/Car wash.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">#}
+         <span class="brand-text font-weight-light">
+        <i class="fas fa-car"></i> CarWash Master
+    </span>
+       </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -23,7 +25,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="{{ path('home_page') }}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -33,11 +35,40 @@
           </li>
           <li class="nav-header">EXAMPLES</li>
           <li class="nav-item">
+            <!-- Add this code snippet in your sidebar template -->
             <a href="pages/calendar.html" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Calendar
                 <span class="badge badge-info right">2</span>
+              </p>
+            </a>
+          </li>
+            <!-- Custom link for Customers -->
+          <li class="nav-item">
+            <a href="pages/customers.html" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Customers
+                <!-- You can add a badge or other custom styling here if needed -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/payment.html" class="nav-link">
+              <i class="nav-icon fas fa-credit-card"></i>
+              <p>
+                Payment
+                <!-- You can add a badge or other custom styling here if needed -->
+              </p>
+            </a>
+          </li>
+            <!-- Add this code snippet in your sidebar template after the existing links -->
+          <li class="nav-item">
+            <a href="logout" class="nav-link">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>
+                Sign Out
               </p>
             </a>
           </li>
