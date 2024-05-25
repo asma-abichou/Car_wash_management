@@ -5,9 +5,8 @@
          {#<img src="{{ asset('dist/img/Car wash.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">#}
          <span class="brand-text font-weight-light">
         <i class="fas fa-car"></i> CarWash Master
-    </span>
+        </span>
        </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -38,45 +37,32 @@
           <li class="nav-item">
             <a href="pages/customers.html" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
-              <p>
-                Wash point
-                <!-- You can add a badge or other custom styling here if needed -->
-              </p>
+              <p>Point de lavage</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/payment.html" class="nav-link">
+            <a href="{{ path('mail_box_page') }}" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
-              <p>
-                Mail Box
-              </p>
+              <p>Boites aux lettres</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="pages/payment.html" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
-              <p>
-               Liste des reservations
-                <!-- You can add a badge or other custom styling here if needed -->
-              </p>
+              <p>Liste des reservations</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="pages/payment.html" class="nav-link">
               <i class="nav-icon fas fa-clock"></i>
-              <p>
-                Estimer le temps
-                <!-- You can add a badge or other custom styling here if needed -->
-              </p>
+              <p>Estimer le temps</p>
             </a>
           </li>
             <!-- Add this code snippet in your sidebar template after the existing links -->
           <li class="nav-item">
             <a href="logout" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>
-              <p>
-                Sign Out
-              </p>
+              <p>se déconnecter</p>
             </a>
           </li>
         </ul>
