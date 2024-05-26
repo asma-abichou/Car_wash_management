@@ -3,8 +3,9 @@
     <!-- Brand Logo -->
        <a href="index3.html" class="brand-link">
          {#<img src="{{ asset('dist/img/Car wash.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">#}
+         <i class="fas fa-car"></i>
          <span class="brand-text font-weight-light">
-        <i class="fas fa-car"></i> CarWash Master
+       CarWash Master
         </span>
        </a>
     <!-- Sidebar -->
@@ -35,7 +36,7 @@
           <li class="nav-header">EXAMPLES</li>
             <!-- Custom link for Customers -->
           <li class="nav-item">
-            <a href="pages/customers.html" class="nav-link">
+            <a href="{{ path('car_wash_point_page') }}" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>Point de lavage</p>
             </a>
@@ -48,14 +49,14 @@
           </li>
           <li class="nav-item">
             <a href="pages/payment.html" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon far fa-calendar-alt"></i>
               <p>Liste des reservations</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/payment.html" class="nav-link">
+            <a href="{{ path('calendar_page') }}" class="nav-link">
               <i class="nav-icon fas fa-clock"></i>
-              <p>Estimer le temps</p>
+              <p>Calendar</p>
             </a>
           </li>
             <!-- Add this code snippet in your sidebar template after the existing links -->
