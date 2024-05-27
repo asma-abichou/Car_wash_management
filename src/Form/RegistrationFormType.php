@@ -23,8 +23,11 @@ class RegistrationFormType extends AbstractType
             ->add('email', EmailType::class, [
                 'attr' => ['class' => 'form-control', 'placeholder' => 'Email']
             ])
-            ->add('fullName', TextType::class, [
-                'attr' => ['class' => 'form-control', 'placeholder' => 'Full name']
+            ->add('firstName', TextType::class, [
+                'attr' => ['class' => 'form-control', 'placeholder' => 'First name']
+            ])
+            ->add('lastName', TextType::class, [
+                'attr' => ['class' => 'form-control', 'placeholder' => 'Last name']
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
@@ -34,7 +37,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('plainPassword', PasswordType::class, [
+            ->add('password', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,

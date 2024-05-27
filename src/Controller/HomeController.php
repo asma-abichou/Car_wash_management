@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 
+use App\Form\MyProfileFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -17,9 +19,14 @@ class HomeController extends AbstractController
     }
 
     #[Route('/profile', name: 'profile_page')]
-    function profile () : Response
+    function profile (Request $request) : Response
     {
-        return $this->render('profile/profile.html.twig');
+        $user = $this->getUser();
+        $form = $this->createForm(MyProfileFormType::class, $user);
+        $form->handleRequest($request);
+        return $this->render('profile/profile.html.twig', [
+            'myProfileForm' => $form->createView(),
+        ]);
 
     }
 

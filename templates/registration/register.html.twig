@@ -13,13 +13,26 @@
         <div class="card-body register-card-body">
             <p class="login-box-msg">Register a new Owner</p>
 
-            <form action="{{ path('home_page') }}" method="post">
+            {{ form_start(registrationForm) }}
                 {{ form_errors(registrationForm) }}
                 <div class="input-group mb-3">
-                    {{ form_widget(registrationForm.fullName, {
+                    {{ form_widget(registrationForm.firstName, {
                         'attr': {
                             'class': 'form-control',
-                            'placeholder': 'Full name'
+                            'placeholder': 'First name'
+                        }
+                    }) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    {{ form_widget(registrationForm.lastName, {
+                        'attr': {
+                            'class': 'form-control',
+                            'placeholder': 'Last name'
                         }
                     }) }}
                     <div class="input-group-append">
@@ -44,7 +57,7 @@
                 </div>
 
                 <div class="input-group mb-3">
-                    {{ form_widget(registrationForm.plainPassword, {
+                    {{ form_widget(registrationForm.password, {
                         'attr': {
                             'class': 'form-control',
                             'placeholder': 'Password'
@@ -55,24 +68,18 @@
                             <span class="fas fa-lock"></span>
                         </div>
                     </div>
+
                 </div>
                 <div class="row">
-                    <div class="col-8">
-                        <div class="icheck-primary">
-                            {{ form_widget(registrationForm.agreeTerms) }}
-                            {{ form_label(registrationForm.agreeTerms, 'I agree to the') }}
-                            <a href="#">terms</a>
-                        </div>
-                    </div>
                     <div class="col-4">
                         <button type="submit" class="btn btn-primary btn-block">Register</button>
                     </div>
                 </div>
-            </form>
+            {{ form_end(registrationForm) }}
             <a href="{{ path('app_login') }}" class="text-center">I already have a membership</a>
+
         </div>
-        <!-- /.form-box -->
-    </div><!-- /.card -->
+    </div>
 </div>
 </body>
 {% endblock %}
