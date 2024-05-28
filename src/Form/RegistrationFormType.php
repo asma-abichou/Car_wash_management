@@ -29,13 +29,21 @@ class RegistrationFormType extends AbstractType
             ->add('lastName', TextType::class, [
                 'attr' => ['class' => 'form-control', 'placeholder' => 'Last name']
             ])
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
-                ],
+            ->add('identityCard', TextType::class, [
+                'label' => 'Carte identité',
+                'required' => false,
+            ])
+            ->add('taxRegistrationCard', TextType::class, [
+                'label' => 'Carte immatriculation fiscale',
+                'required' => false,
+            ])
+            ->add('personalAddress', TextType::class, [
+                'label' => 'Address',
+                'required' => false,
+            ])
+            ->add('telephoneNumber', TextType::class, [
+                'label' => 'Telephone',
+                'required' => false,
             ])
             ->add('password', PasswordType::class, [
                 // instead of being set onto the object directly,
@@ -53,8 +61,7 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
