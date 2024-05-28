@@ -11,13 +11,12 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in</p>
-            <form method="post">
-                {% if error %}
-                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
-
+                <form method="post" action="{{ path('app_login') }}">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
                     <div class="input-group mb-3">
-                        <input value="{{ last_username }}" type="email" class="form-control" placeholder="Email" required autofocus>
+                        <input value="{{ last_username }}" type="email" class="form-control" name="_username" placeholder="Email" required autofocus>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -26,7 +25,6 @@
                     </div>
                     <div class="input-group mb-3">
                         <input class="form-control" type="password" name="_password" id="password" placeholder="Enter your password" autocomplete="current-password" required>
-
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -53,8 +51,7 @@
                     <a href="#">I forgot my password</a>
                 </p>
             </div>
-            </div>
         </div>
+    </div>
     </body>
 {% endblock %}
-

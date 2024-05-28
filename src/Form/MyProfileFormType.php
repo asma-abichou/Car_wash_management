@@ -20,17 +20,33 @@ class MyProfileFormType extends AbstractType
                 'required' => false,
             ])
             ->add('firstName', TextType::class, [
-                'label' => 'First Name',
+                'label' => 'Nom',
                 'required' => true,
             ])
             ->add('lastName', TextType::class, [
-                'label' => 'Last Name',
+                'label' => 'Prénom',
                 'required' => true,
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Email',
                 'required' => true,
             ])
+            ->add('identityCard', TextType::class, [
+                'label' => 'Carte identité',
+                'required' => false,
+            ])
+            ->add('taxRegistrationCard', TextType::class, [
+                'label' => 'Carte immatriculation fiscale',
+                'required' => false,
+            ])
+            ->add('personalAddress', TextType::class, [
+                'label' => 'Address',
+                'required' => false,
+            ])
+            ->add('telephoneNumber', TextType::class, [
+                'label' => 'Telephone ',
+                'required' => false,
+            ]);
         ;
     }
 

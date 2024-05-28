@@ -39,6 +39,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $lastName = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $profileImage = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $identityCard = null;
+
+    #[ORM\Column]
+    private ?int $telephoneNumber = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $personalAddress = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $taxRegistrationCard = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -134,6 +149,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastName(string $lastName): static
     {
         $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    public function getProfileImage(): ?string
+    {
+        return $this->profileImage;
+    }
+
+    public function setProfileImage(?string $profileImage): static
+    {
+        $this->profileImage = $profileImage;
+
+        return $this;
+    }
+
+    public function getIdentityCard(): ?string
+    {
+        return $this->identityCard;
+    }
+
+    public function setIdentityCard(string $identityCard): static
+    {
+        $this->identityCard = $identityCard;
+
+        return $this;
+    }
+
+    public function getTelephoneNumber(): ?int
+    {
+        return $this->telephoneNumber;
+    }
+
+    public function setTelephoneNumber(int $telephoneNumber): static
+    {
+        $this->telephoneNumber = $telephoneNumber;
+
+        return $this;
+    }
+
+    public function getPersonalAddress(): ?string
+    {
+        return $this->personalAddress;
+    }
+
+    public function setPersonalAddress(?string $personalAddress): static
+    {
+        $this->personalAddress = $personalAddress;
+
+        return $this;
+    }
+
+    public function getTaxRegistrationCard(): ?string
+    {
+        return $this->taxRegistrationCard;
+    }
+
+    public function setTaxRegistrationCard(?string $taxRegistrationCard): static
+    {
+        $this->taxRegistrationCard = $taxRegistrationCard;
 
         return $this;
     }
