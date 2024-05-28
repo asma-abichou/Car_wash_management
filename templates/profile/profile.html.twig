@@ -11,7 +11,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 50vh;
+            height: 100vh;
             padding: 20px;
         }
 
@@ -74,13 +74,14 @@
             </section>
             <div class="profile-container">
                 <div class="profile-card">
-                    {% for successMessage in app.flashes('editProfileSuccess') %}
-                        <div class="alert alert-success">
-                            {{ successMessage }}
-                        </div>
-                    {% endfor %}
+
                     <div class="row">
                         <div class="col-md-12">
+                            {% for successMessage in app.flashes('editProfileSuccess') %}
+                                <div class="alert alert-success">
+                                    {{ successMessage }}
+                                </div>
+                            {% endfor %}
                             {{ form_start(myProfileForm) }}
                             <div class="mb-3">
                                 <div class="card-body text-center">

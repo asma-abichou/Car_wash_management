@@ -18,6 +18,7 @@ class MyProfileFormType extends AbstractType
             ->add('profileImage', FileType::class, [
                 'label' => 'Profile Image',
                 'required' => false,
+                'data_class' => null,
             ])
             ->add('firstName', TextType::class, [
                 'label' => 'Nom',
