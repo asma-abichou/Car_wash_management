@@ -8,11 +8,12 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class CarWashController extends AbstractController
 {
-    #[Route('/wash', name: 'car_wash_point_page')]
-    function home () : Response
+    #[Route('/wachPoint', name: 'car_wash_point_page')]
+    function washPointList () : Response
     {
         return $this->render('WashCarPoint/carWashPoint.html.twig');
 
     }
+
 
 }
