@@ -86,7 +86,7 @@
                             <div class="mb-3">
                                 <div class="card-body text-center">
                                     {% if app.user.profileImage|default %}
-                                        <img class="img-account-profile rounded-circle" src="{{ asset('uploads/admin/profile_images/' ~ app.user.profileImage) }}" />
+                                        <img class="img-account-profile rounded-circle" src="{{ asset('/uploads/profile_images/' ~ app.user.profileImage) }}" width="120" height="120"/>
                                     {% else %}
                                         <img class="img-account-profile rounded-circle" src="{{ asset('/uploads/user2.jpg') }}" width="120" height="120"/>
                                     {% endif %}
