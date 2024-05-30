@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Car Wash Status
+    Car Wash Point
 {% endblock %}
 
 {% block body %}
@@ -12,75 +12,129 @@
         <div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                            <div class="card-header">
-                            <h3 class="card-title"> La liste des points de lavage</h3>
-
-                            <div class="card-tools">
-                              <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                                <div class="input-group-append">
-                                  <button type="submit" class="btn btn-default">
-                                    <i class="fas fa-search"></i>
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- /.card-header -->
-                          <div class="card-body table-responsive p-0">
-                              <table class="table table-hover text-nowrap">
-                                  <thead>
-                                    <tr>
-                                      <th>Matricule</th>
-                                      <th>Nom</th>
-                                      <th>Emplacement</th>
-                                      <th>Heures d'ouverture</th>
-                                      <th>Actions</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <td>183</td>
-                                      <td>John Doe</td>
-                                      <td>11-7-2014</td>
-                                      <td><span class="tag tag-success">Approved</span></td>
-                                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    </tr>
-                                    <tr>
-                                      <td>219</td>
-                                      <td>Alexander Pierce</td>
-                                      <td>11-7-2014</td>
-                                      <td><span class="tag tag-warning">Pending</span></td>
-                                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    </tr>
-                                    <tr>
-                                      <td>657</td>
-                                      <td>Bob Doe</td>
-                                      <td>11-7-2014</td>
-                                      <td><span class="tag tag-primary">Approved</span></td>
-                                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    </tr>
-                                    <tr>
-                                      <td>175</td>
-                                      <td>Mike Doe</td>
-                                      <td>11-7-2014</td>
-                                      <td><span class="tag tag-danger">Denied</span></td>
-                                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                          </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Projects</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                                <li class="breadcrumb-item active">point de lavage/li>
+                            </ol>
                         </div>
                     </div>
                 </div>
             </section>
-        </div>
-    </div>
-    </body>
+            <section class="content">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Ajouter un nouveau point de lavage</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    {{ form_start(form) }}
+                    <div class="card-body">
+                        <div class="form-group">
+                            {{ form_label(form.name, 'Nom du point de lavage') }}
+                            {{ form_widget(form.name, { 'attr': {'class': 'form-control', 'placeholder': 'Entrez le nom du point de lavage'} }) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.address, 'Adresse') }}
+                            {{ form_widget(form.address, { 'attr': {'class': 'form-control', 'placeholder': "Entrez l'adresse"} }) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.phone, 'Numéro de téléphone') }}
+                            {{ form_widget(form.phone, { 'attr': {'class': 'form-control', 'placeholder': 'Entrez le numéro de téléphone'} }) }}
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
 
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </section>
+            <section class="content">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Liste des Lavages</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-striped projects">
+                            <thead>
+                            <tr>
+                                <th style="width: 1%">#</th>
+                                <th style="width: 20%">Nom du point de lavage</th>
+                                <th style="width: 20%">Adresse</th>
+                                <th>Numéro de téléphone</th>
+                                <th style="width: 8%" class="text-center">Status</th>
+                                <th style="width: 20%"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for washCarPoint in washCarPoints %}
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>
+                                        <a>{{ washCarPoint.name }}</a>
+                                        <br/>
+                                        <small>Créer le {{ washCarPoint.createdAt|date('d.m.Y') }}</small>
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline">
+                                            <p>{{ washCarPoint.address }}</p>
+                                        </ul>
+                                    </td>
+                                    <td class="phone">
+                                        <ul class="list-inline">
+                                            <p>{{ washCarPoint.phone }}</p>
+                                        </ul>
+                                    </td>
+                                    <td class="project-state">
+                                        <span class="badge badge-success">Open</span>
+                                    </td>
+                                    <td class="project-actions text-right">
+                                        <a class="btn btn-primary btn-sm" href="#">
+                                            <i class="fas fa-folder"></i>
+                                            View
+                                        </a>
+                                        <a class="btn btn-info btn-sm" href="#">
+                                            <i class="fas fa-pencil-alt"></i>
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-danger btn-sm" href="{{ path('car_wash_delete', { 'id': washCarPoint.id }) }}">
+                                            <i class="fas fa-trash"></i>
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </section>
+
+        </div>
+        <!-- /.content-wrapper -->
+        {% include 'footer.html.twig' %}
+    </div>
+    <!-- ./wrapper -->
+    </body>
 {% endblock %}
