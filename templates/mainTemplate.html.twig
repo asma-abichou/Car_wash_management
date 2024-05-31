@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}CarWash Master | Home{% endblock %}</title>
+    {% block stylesheets %}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta charset="utf-8">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,300italic,400italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Syncopate:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ asset('tools/css/libs.css') }}" media="screen" />
+        <link rel="stylesheet" href="{{ asset('tools/css/styles.css') }}" media="screen" />
+        <link rel="icon" href="{{ asset('tools/img/favicon.png') }}" type="image/x-icon"/>
+        <link rel="shortcut icon" href="{{ asset('tools/img/favicon.png') }}" type="image/x-icon"/>
+    {% endblock %}
+
+</head>
+<body>
+{% block body %}
+
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('tools/js/jquery-2.1.4.min.js') }}" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp" defer></script>
+    <script src="{{ asset('tools/js/maps.js') }}" type="text/javascript" defer></script>
+    <script src="{{ asset('tools/js/plugins.js') }}" type="text/javascript" defer></script>
+    <script src="{{ asset('tools/js/main.js') }}" type="text/javascript" defer></script>
+{% endblock %}
+</body>
+</html>
