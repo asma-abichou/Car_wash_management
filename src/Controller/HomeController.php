@@ -15,6 +15,8 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
+#[Route('/dashboard')]
+#[IsGranted('ROLE_USER')]
 class HomeController extends AbstractController
 {
     public function __construct(
@@ -23,8 +25,8 @@ class HomeController extends AbstractController
     {
     }
 
-    #[Route('/dashboard', name: 'home_page')]
-    #[IsGranted('ROLE_USER')]
+    #[Route('/home', name: 'home_page')]
+
     function home () : Response
     {
         return $this->render('template.html.twig');

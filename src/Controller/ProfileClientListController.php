@@ -9,13 +9,12 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/dashboard')]
 #[IsGranted('ROLE_USER')]
-class CalendarController extends AbstractController
+class ProfileClientListController extends AbstractController
 {
-
-    #[Route('/show', name: 'calendar_page')]
-    function home () : Response
+    #[Route('/profileList', name: 'show_Profile_saved')]
+    function ProfileList () : Response
     {
-        return $this->render('calendar/calendar.html.twig');
+        return $this->render('ClientProfileList/listProfile.html.twig');
 
     }
 

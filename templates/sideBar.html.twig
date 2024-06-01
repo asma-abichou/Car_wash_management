@@ -2,42 +2,50 @@
      <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
        <a href="index3.html" class="brand-link">
-         {#<img src="{{ asset('dist/img/Car wash.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">#}
-         <i class="fas fa-car"></i>
-         <span class="brand-text font-weight-light">
-       CarWash Master
-        </span>
+         <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+         <span class="brand-text font-weight-light">Car Wash</span>
        </a>
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      {% if is_granted('IS_AUTHENTICATED_FULLY') %}
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <div class="image">
-          <img src="{{ asset('uploads/profile_images/' ~ app.user.profileImage) }}" class="img-circle elevation-2 custom-profile-image" alt="User Image" width="50" height="50">
+
+          <img src="{{ asset('uploads/user1.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="{{ path('profile_page') }}" class="d-block">
-            {{ app.user.firstName }} {{ app.user.lastName }}
-          </a>
+          <a href="{{ path('profile_page') }}" class="d-block"> {{ app.user.firstName }} {{ app.user.lastName }}</a>
         </div>
+        {% endif %}
       </div>
-      {% endif %}
+
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="{{ path('home_page') }}" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+          <li class="nav-item ">
+            <a href="{{ path('home_page') }}" class="nav-link ">
+              <i class="nav-icon fas fa-home"></i>
               <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
+                Accueil
               </p>
             </a>
           </li>
-          <li class="nav-header">EXAMPLES</li>
+          <li class="nav-item">
+            <a href="{{ path('home_page') }}" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ path('car_wash_add') }}" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>Profile</p>
+            </a>
+          </li>
             <!-- Custom link for Customers -->
           <li class="nav-item">
             <a href="{{ path('car_wash_add') }}" class="nav-link">
@@ -52,9 +60,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ path('show_list_reservations') }}" class="nav-link">
+            <a href="{{ path('show_Profile_saved') }}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
-              <p>Liste des reservations</p>
+              <p>List des Profils  </p>
             </a>
           </li>
           <li class="nav-item">

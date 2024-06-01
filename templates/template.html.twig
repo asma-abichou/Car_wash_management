@@ -8,85 +8,72 @@
     <div class="wrapper">
             {% include 'navBar.html.twig' %}
             {% include 'sideBar.html.twig' %}
-            <div class="content-wrapper">
-                <section class="content-header">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">
-                                        <i class="fas fa-car fa-3x"></i>
-                                        <h3>Statuts de voitures</h3>
-                                        <p>Nombre de voitures lavées : 3</p>
-                                        <a href="#" class="btn btn-light btn-sm">
-                                            More info <i class="fas fa-arrow-circle-right ml-1"></i>
-                                        </a>
+        <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row">
+                            <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-info">
+                                    <div class="inner">
+                                        <h3>150</h3>
+
+                                        <p>New Orders</p>
                                     </div>
+                                    <div class="icon">
+                                        <i class="ion ion-bag"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
-                        <div class="col-lg-4">
-                            <div class="card bg-info text-white mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-clock fa-3x"></i>
-                                    <h3>Estimation du temps </h3>
-                                    <p>Temps de lavage estimé: 1h</p>
-                                    <a href="#" class="btn btn-light btn-sm">
-                                        More info <i class="fas fa-arrow-circle-right ml-1"></i>
-                                    </a>
+                            <!-- ./col -->
+                            <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-success">
+                                    <div class="inner">
+                                        <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                                        <p>Bounce Rate</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-stats-bars"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="card bg-warning text-white mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-cogs fa-3x"></i>
-                                    <h3>Mettre à jour les estimations</h3>
-                                    <p>Nouvelle heure estimée: 3h:30min</p>
-                                    <a href="#" class="btn btn-light btn-sm">
-                                        More info <i class="fas fa-arrow-circle-right ml-1"></i>
-                                    </a>
+                            <!-- ./col -->
+                            <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-warning">
+                                    <div class="inner">
+                                        <h3>44</h3>
+
+                                        <p>Profils enregistés</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-person-add"></i>
+                                    </div>
+                                    <a href="{{ path('show_Profile_saved') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
-                        </div>
+                            <!-- ./col -->
+                            <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-danger">
+                                    <div class="inner">
+                                        <h3>65</h3>
+
+                                        <p>Unique Visitors</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-pie-graph"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                            </div>
+                        </section>
                     </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">
-                                        <i class="fas fa-chart-line fa-3x"></i>
-                                        <h3>Indicateurs de performance</h3>
-                                        <a href="#" class="btn btn-light btn-sm">
-                                            More info <i class="fas fa-arrow-circle-right ml-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">
-                                        <i class="fas fa-users fa-3x"></i>
-                                        <h3>Gestion des employés</h3>
-                                        <a href="#" class="btn btn-light btn-sm">
-                                            More info <i class="fas fa-arrow-circle-right ml-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card bg-info text-white mb-4">
-                                    <div class="card-body">
-                                        <i class="fas fa-dollar-sign fa-3x"></i>
-                                        <h3>Aperçu financier</h3>
-                                        <a href="#" class="btn btn-light btn-sm">
-                                            More info <i class="fas fa-arrow-circle-right ml-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Additional sections for other features -->
-                        </div>
                     </div>
                 </section>
             </div>
