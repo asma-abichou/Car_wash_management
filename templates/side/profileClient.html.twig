@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create User Profile</title>
+  <style>
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+
+    input[type="file"] {
+      margin-top: 5px;
+    }
+
+    button[type="submit"] {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #f5f5f5;
+      color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>User Profile Creation</h1>
+</header>
+
+<main>
+  <form action="#" method="POST">
+    <div>
+      <label for="first_name">First Name:</label>
+      <input type="text" id="first_name" name="first_name" required>
+    </div>
+    <div>
+      <label for="last_name">Last Name:</label>
+      <input type="text" id="last_name" name="last_name" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" name="phone">
+    </div>
+    <div>
+      <label for="address">Address:</label>
+      <textarea id="address" name="address"></textarea>
+    </div>
+    <div>
+      <label for="car_make">Car Make:</label>
+      <input type="text" id="car_make" name="car_make" required>
+    </div>
+    <div>
+      <label for="car_model">Car Model:</label>
+      <input type="text" id="car_model" name="car_model" required>
+    </div>
+    <div>
+      <label for="car_year">Car Year:</label>
+      <input type="number" id="car_year" name="car_year" required>
+    </div>
+    <br>
+
+    <button type="submit">Save Profile</button>
+  </form>
+</main>
+
+<footer>
+  <p>&copy; 2024 Your Website. All rights reserved.</p>
+</footer>
+</body>
+</html>
