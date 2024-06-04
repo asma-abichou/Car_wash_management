@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car Wash Profile</title>
+  <style>
+    /* Modern CSS Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .fullwidth-section {
+      width: 100%;
+      padding: 50px 0;
+    }
+
+    .gray-section {
+      background-color: #f7f7f7;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: #888;
+      margin-top: 0;
+    }
+
+    #map_canvas {
+      height: 400px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+  <h1>Car Wash Profile</h1>
+</header>
+
+<!-- Main Content -->
+<main>
+  <!-- Profile Creation Success Message -->
+  <section id="profile-success" class="fullwidth-section">
+    <div class="container">
+      <h2>Profile Created Successfully!</h2>
+      <p>Thank you for creating your car wash profile. Your information has been saved.</p>
+      <!-- Additional success message content or actions can be added here -->
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section id="localize-us" class="fullwidth-section gray-section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Location</h2>
+        <h4 class="section-subtitle">This is where we are</h4>
+      </div>
+      <div id="map_canvas"></div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2024 Car Wash Profile. All rights reserved.</p>
+</footer>
+
+<!-- Include necessary JavaScript files -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+<script>
+  function initMap() {
+    // Set the latitude and longitude coordinates for your desired location
+    var latitude = 37.7749; // Example latitude
+    var longitude = -122.4194; // Example longitude
+
+    // Create a new map centered around the specified coordinates
+    var map = new google.maps.Map(document.getElementById('map_canvas'), {
+      center: { lat: latitude, lng: longitude },
+      zoom: 12
+    });
+
+    // Add a marker for your location
+    var marker = new google.maps.Marker({
+      position: { lat: latitude, lng: longitude },
+      map: map,
+      title: 'Your Location'
+    });
+  }
+
+  // Call the initMap function once the Google Maps API has loaded
+  google.maps.event.addDomListener(window, 'load', initMap);
+</script>
+</body>
+</html>

@@ -7,6 +7,7 @@ use App\Form\CustomerProfileType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class CustomerController extends AbstractController
@@ -34,6 +35,11 @@ class CustomerController extends AbstractController
         return $this->render('side/profileClient.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+    #[Route('/location/carwash', name: 'create_location')]
+    public function displayMap(): Response
+    {
+        return $this->render('side/locationCarWash.html.twig');
     }
 
 
