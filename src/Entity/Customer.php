@@ -28,6 +28,12 @@ class Customer
     #[ORM\Column(length: 255)]
     private ?string $address = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $carMake = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $carModel = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +95,30 @@ class Customer
     public function setAddress(string $address): static
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    public function getCarMake(): ?string
+    {
+        return $this->carMake;
+    }
+
+    public function setCarMake(?string $carMake): static
+    {
+        $this->carMake = $carMake;
+
+        return $this;
+    }
+
+    public function getCarModel(): ?string
+    {
+        return $this->carModel;
+    }
+
+    public function setCarModel(?string $carModel): static
+    {
+        $this->carModel = $carModel;
 
         return $this;
     }
