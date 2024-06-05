@@ -29,7 +29,7 @@ class CustomerController extends AbstractController
             $this->entityManager->persist($customer);
             $this->entityManager->flush();
 
-            return $this->redirectToRoute('customer_create');
+            return $this->redirectToRoute('create_location');
         }
 
         return $this->render('side/profileClient.html.twig', [

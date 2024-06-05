@@ -2,6 +2,13 @@
 <html>
 <head>
   <title>Car Wash Profile</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,300italic,400italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Syncopate:400,700' rel='stylesheet' type='text/css'>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+  <link rel="stylesheet" href="{{ asset('tools/css/libs.css') }}" media="screen" />
+  <link rel="stylesheet" href="{{ asset('tools/css/styles.css') }}" media="screen" />
+  <link rel="icon" href="{{ asset('tools/img/favicon.png') }}" type="image/x-icon"/>
+  <link rel="shortcut icon" href="{{ asset('tools/img/favicon.png') }}" type="image/x-icon"/>
   <style>
     /* Modern CSS Styles */
     body {
@@ -62,7 +69,7 @@
 <body>
 <!-- Header -->
 <header>
-  <h1>Car Wash Profile</h1>
+
 </header>
 
 <!-- Main Content -->
@@ -72,16 +79,21 @@
     <div class="container">
       <h2>Profile Created Successfully!</h2>
       <p>Thank you for creating your car wash profile. Your information has been saved.</p>
+      <div id="map" style="height: 400px;"></div>
+      <button onclick="getUserLocation()">Find Nearby Car Washes</button>
       <!-- Additional success message content or actions can be added here -->
     </div>
   </section>
 
   <!-- Location Section -->
   <section id="localize-us" class="fullwidth-section gray-section">
-    <div class="container">
-      <div class="section-title-wrapper">
-        <h2 class="section-title">Location</h2>
-        <h4 class="section-subtitle">This is where we are</h4>
+    <div class="section-inner no-padding-bottom">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <h2 class="section-title"><span>Location</span></h2>
+          <h4 class="section-subtitle">This is where we are</h4>
+          <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51757.488015501935!2d10.576854782366917!3d35.82832751999088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130275759ac9d10d%3A0x698e3915682cef7d!2sSousse!5e0!3m2!1sfr!2stn!4v1717536516174!5m2!1sfr!2stn" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+        </div>
       </div>
       <div id="map_canvas"></div>
     </div>
@@ -93,30 +105,65 @@
   <p>&copy; 2024 Car Wash Profile. All rights reserved.</p>
 </footer>
 
-<!-- Include necessary JavaScript files -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+
 <script>
-  function initMap() {
-    // Set the latitude and longitude coordinates for your desired location
-    var latitude = 37.7749; // Example latitude
-    var longitude = -122.4194; // Example longitude
+  function getUserLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showNearbyCarWashes);
+    } else {
+      console.log('Geolocation is not supported by this browser.');
+    }
+  }
+  function showNearbyCarWashes(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
 
-    // Create a new map centered around the specified coordinates
-    var map = new google.maps.Map(document.getElementById('map_canvas'), {
-      center: { lat: latitude, lng: longitude },
-      zoom: 12
-    });
+    // Make a request to the Google Places API for nearby car washes
+    let request = {
+      location: new google.maps.LatLng(latitude, longitude),
+      radius: '5000', // Specify the desired search radius in meters
+      type: 'car_wash' // Specify the type of place you want to search for (car wash in this case)
+    };
 
-    // Add a marker for your location
-    var marker = new google.maps.Marker({
-      position: { lat: latitude, lng: longitude },
-      map: map,
-      title: 'Your Location'
-    });
+    let service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, handleNearbySearchResults);
   }
 
-  // Call the initMap function once the Google Maps API has loaded
-  google.maps.event.addDomListener(window, 'load', initMap);
+  function handleNearbySearchResults(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      for (let i = 0; i < results.length; i++) {
+        let place = results[i];
+
+        // Extract relevant information about the car wash
+        let name = place.name;
+        let address = place.vicinity;
+        let latitude = place.geometry.location.lat();
+        let longitude = place.geometry.location.lng();
+
+        // Display a marker on the map for each car wash location
+        let marker = new google.maps.Marker({
+          position: { lat: latitude, lng: longitude },
+          map: map,
+          title: name
+        });
+
+        // Add an info window with additional details for each car wash
+        let content = '<strong>' + name + '</strong><br>' + address;
+        let infoWindow = new google.maps.InfoWindow({
+          content: content
+        });
+
+        // Show the info window when the marker is clicked
+        marker.addListener('click', function() {
+          infoWindow.open(map, marker);
+        });
+      }
+    }
+  }
 </script>
+<!-- Include necessary JavaScript files -->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp" defer></script>
+<script src="{{ asset('tools/js/maps.js') }}" type="text/javascript" defer></script>
+<script src="{{ asset('tools/js/plugins.js') }}" type="text/javascript" defer></script>
 </body>
 </html>
