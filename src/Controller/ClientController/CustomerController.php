@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\clientController;
+namespace App\Controller\ClientController;
 
 use App\Entity\Customer;
 use App\Form\CustomerProfileType;

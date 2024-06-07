@@ -603,6 +603,7 @@ textarea::placeholder {
   width: 100%;
   display: block;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 900;
   border: 2px solid #64ab8d;
 }
