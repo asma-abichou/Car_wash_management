@@ -1,0 +1,18 @@
+{% extends 'mainTemplate.html.twig' %}
+{% block title %}CarWash Master | Profile{% endblock %}
+ {%  block stylesheets %}
+
+
+ {% endblock  %}
+{% block body %}
+    <h1>Customer Login</h1>
+    <form action="{{ path('login_customer') }}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="{{ last_username }}" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+{% endblock %}

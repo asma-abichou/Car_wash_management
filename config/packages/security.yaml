@@ -44,6 +44,9 @@ security:
     access_control:
          - { path: ^/dashboard, roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }
+    role_hierarchy:
+        # Define your new role
+        ROLE_CUSTOMER: ~
 
 when@test:
     security:
