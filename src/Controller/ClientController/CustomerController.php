@@ -2,8 +2,10 @@
 
 namespace App\Controller\ClientController;
 
-use App\Entity\Customer;
+
+use App\Entity\User;
 use App\Form\CustomerProfileType;
+use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,13 +22,15 @@ class CustomerController extends AbstractController
     #[Route('/customer/create', name: 'customer_create')]
     public function create(Request $request)
     {
-        $customer = new Customer();
-        $form = $this->createForm(CustomerProfileType::class, $customer);
+        $user = new User();
+        $form = $this->createForm(RegistrationFormType::class, $user);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = new User();
+            $user->setRoles(['ROLE_CUSTOMER']);
 
-            $this->entityManager->persist($customer);
+            $this->entityManager->persist($user);
             $this->entityManager->flush();
 
             return $this->redirectToRoute('create_location');
