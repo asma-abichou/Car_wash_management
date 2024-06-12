@@ -81,11 +81,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return (string) $this->email;
     }
 
-    /**
-     * @see UserInterface
-     *
-     * @return list<string>
-     */
+
     public function getRoles(): array
     {
         $roles = $this->roles;
@@ -94,9 +90,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if (!in_array('ROLE_CUSTOMER', $roles)) {
             $roles[] = 'ROLE_CUSTOMER';
         }
+        if (!in_array('ROLE_OWNER', $roles)) {
+            $roles[] = 'ROLE_OWNER';
+        }
         return array_unique($roles);
     }
-
     /**
      * @param list<string> $roles
      */
