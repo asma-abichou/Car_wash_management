@@ -25,6 +25,7 @@ class RegistrationController extends AbstractController
     public function registerCustomer(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(CustomerProfileType::class, new User());
+
         return $this->register($request, $userPasswordHasher, $entityManager, $form, 'ROLE_CUSTOMER');
     }
 

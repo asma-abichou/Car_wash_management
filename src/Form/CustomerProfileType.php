@@ -16,7 +16,7 @@ class CustomerProfileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
+            ->add('firstName', TextType::class, [
                 'label' => 'Nom',
                 'required' => true,
             ])
@@ -48,14 +48,7 @@ class CustomerProfileType extends AbstractType
             ->add('password', PasswordType::class, [
                 'required' => true,
             ])
-            ->add('carMake', TextType::class, [
-                'label' => 'Marque de voiture',
-                'required' => true,
-            ])
-            ->add('carModel', TextType::class, [
-                'label' => 'Modèle de voiture',
-                'required' => true,
-            ])
+
            ;
     }
 
