@@ -42,11 +42,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $profileImage = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $identityCard = null;
 
-    #[ORM\Column]
-    private ?int $telephoneNumber = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $personalAddress = null;
@@ -189,17 +187,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getTelephoneNumber(): ?int
-    {
-        return $this->telephoneNumber;
-    }
-
-    public function setTelephoneNumber(int $telephoneNumber): static
-    {
-        $this->telephoneNumber = $telephoneNumber;
-
-        return $this;
-    }
 
     public function getPersonalAddress(): ?string
     {

@@ -15,11 +15,6 @@ class SideClientHomeController extends AbstractController
     {
         return $this->render('side/accueil.html.twig');
     }
-    #[Route('/nearest-car-wash', name: 'nearest_car_wash')]
-    function ListNearestCarWash(): Response
-    {
-        return $this->render('side/accueil.html.twig');
-    }
 
 
 }

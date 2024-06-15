@@ -1,101 +1,120 @@
-{% extends 'mainTemplate.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}CarWash Master | Profile{% endblock %}
- {%  block stylesheets %}
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,300italic,400italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Syncopate:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="{{ asset('tools/css/libs.css') }}" media="screen" />
-  <link rel="stylesheet" href="{{ asset('tools/css/styles.css') }}" media="screen" />
-  <link rel="icon" href="{{ asset('tools/img/favicon.png') }}" type="image/x-icon"/>
-  <link rel="shortcut icon" href="{{ asset('tools/img/favicon.png') }}" type="image/x-icon"/>
-  <style>
-    /* Add your CSS styles here */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
 
-    }
-
-    main {
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #f5f5f5;
-      border-radius: 5px;
-      background-image: url(../../public/tools/img/photo-1419332563740-42322047ff09.jpg);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    form {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      margin-bottom: 10px;
-    }
-
-    input[type="file"] {
-      margin-top: 5px;
-    }
-
-    button[type="submit"] {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    footer {
-      background-color: #f5f5f5;
-      color: #333;
-      padding: 10px;
-      text-align: center;
-    }
-  </style>
-{% endblock  %}
 {% block body %}
-<body>
+<body class="hold-transition register-page">
+<div class="register-box">
+    <div class="register-logo">
+        <a href="{{ path('home_page') }}"><b>Client</b>Register</a>
+    </div>
+    <div class="card">
+        <div class="card-body register-card-body">
+            <p class="login-box-msg">Register a new Owner</p>
 
-<main>
-  {{ form_start(form) }}
-  {{ form_row(form.firstName) }}
-  {{ form_row(form.lastName) }}
+              {{ form_start(registrationForm) }}
+            {{ form_errors(registrationForm) }}
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                {{ form_widget(registrationForm.firstName, {
+                    'attr': {
+                        'class': 'form-control',
+                        'placeholder': 'First name'
+                    }
+                }) }}
+            </div>
 
-  {{ form_row(form.country) }}
-  {{ form_row(form.state) }}
-  {{ form_row(form.city) }}
-  {{ form_row(form.email) }}
-  {{ form_row(form.password) }}
-  {{ form_row(form.carMake) }}
-  {{ form_row(form.carModel) }}
-  <br>
-  <button type="submit">Create Profile</button>
-  {{ form_end(form) }}
-</main>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                {{ form_widget(registrationForm.lastName, {
+                    'attr': {
+                        'class': 'form-control',
+                        'placeholder': 'Last name'
+                    }
+                }) }}
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                </div>
+                {{ form_widget(registrationForm.phone, {
+                    'attr': {
+                        'class': 'form-control',
+                        'placeholder': 'Telephone'
+                    }
+                }) }}
+            </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-home"></i></span>
+                    </div>
+                    {{ form_widget(registrationForm.country, {
+                        'attr': {
+                            'class': 'form-control',
+                            'placeholder': 'Pays'
+                        }
+                    }) }}
+                </div>
+                <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-home"></i></span>
+                        </div>
+                        {{ form_widget(registrationForm.state, {
+                            'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'État'
+                            }
+                        }) }}
 
-<footer>
-  <p>&copy; 2024 Your Website. All rights reserved.</p>
-</footer>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp" defer></script>
-<script src="{{ asset('tools/js/maps.js') }}" type="text/javascript" defer></script>
-<script src="{{ asset('tools/js/plugins.js') }}" type="text/javascript" defer></script>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-home"></i></span>
+                    </div>
+                    {{ form_widget(registrationForm.city, {
+                        'attr': {
+                            'class': 'form-control',
+                            'placeholder': 'Ville'
+                        }
+                    }) }}
+                </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                </div>
+                {{ form_widget(registrationForm.email, {
+                    'attr': {
+                        'class': 'form-control',
+                        'placeholder': 'Email'
+                    }
+                }) }}
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                </div>
+                {{ form_widget(registrationForm.password, {
+                    'attr': {
+                        'class': 'form-control',
+                        'placeholder': 'Password'
+                    }
+                }) }}
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                </div>
+            </div>
+            {{ form_end(registrationForm) }}
+        <br>
+            <div> <a href="{{ path('app_login') }}" class="text-center">J'ai déjà un abonnement</a></div>
+
+        </div>
+    </div>
+</div>
+</body>
 {% endblock %}

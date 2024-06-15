@@ -15,6 +15,11 @@
                     {% if error %}
                         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}
+                    {% for flashMessage in app.session.flashBag.get('success') %}
+                        <div class="alert alert-success">
+                            {{ flashMessage }}
+                        </div>
+                    {% endfor %}
                     <div class="input-group mb-3">
                         <input value="{{ last_username }}" type="email" class="form-control" name="_username" placeholder="Email" required autofocus>
                         <div class="input-group-append">

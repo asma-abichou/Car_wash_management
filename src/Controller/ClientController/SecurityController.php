@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\ClientController;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,11 +15,7 @@ class SecurityController extends AbstractController
         if ($this->getUser()) {
             // Check user role and redirect
             $user = $this->getUser();
-            if (in_array('ROLE_OWNER', $user->getRoles())) {
-                return $this->redirectToRoute('home_page');
-            }
-
-            return $this->redirectToRoute('home_page');
+            return $this->redirectToRoute('client_home');
         }
 
         // get the login error if there is one
@@ -27,7 +23,7 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login-Owner.html.twig', [
+        return $this->render('security/login-Customer.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error
             ]);
