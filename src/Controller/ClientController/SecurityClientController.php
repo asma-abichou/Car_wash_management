@@ -7,17 +7,17 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-class SecurityController extends AbstractController
+class SecurityClientController extends AbstractController
 {
-    #[Route(path: '/login/client', name: 'login_customer')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    #[Route(path: '/customer/login', name: 'login_customer')]
+    public function loginClient(AuthenticationUtils $authenticationUtils): Response
     {
-        if ($this->getUser()) {
+         if ($this->getUser()) {
             // Check user role and redirect
             $user = $this->getUser();
             return $this->redirectToRoute('client_home');
-        }
 
+        }
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user

@@ -44,7 +44,7 @@ class MyProfileFormType extends AbstractType
                 'label' => 'Address',
                 'required' => false,
             ])
-            ->add('telephoneNumber', TextType::class, [
+            ->add('phone', TextType::class, [
                 'label' => 'Telephone ',
                 'required' => false,
             ]);

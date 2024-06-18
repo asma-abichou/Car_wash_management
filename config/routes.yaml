@@ -4,5 +4,5 @@ controllers:
         namespace: App\Controller
     type: attribute
 login_customer:
-    path: '/customer/login'
-    controller: App\Controller\CustomerLoginController::login
+    path: /client/login
+    controller: App\Controller\SecurityClientController::loginClient

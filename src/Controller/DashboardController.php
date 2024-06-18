@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use App\Form\MyProfileFormType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -17,16 +16,14 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/dashboard')]
 #[IsGranted('ROLE_USER')]
-class HomeController extends AbstractController
+class DashboardController extends AbstractController
 {
     public function __construct(
         private readonly EntityManagerInterface $entityManager
     )
     {
     }
-
     #[Route('/home', name: 'home_page')]
-
     function home () : Response
     {
         return $this->render('template.html.twig');
@@ -45,7 +42,7 @@ class HomeController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             /** @var UploadedFile $profileImageFile */
             $profileImageFile = $form->get('profileImage')->getData();
-             if ($profileImageFile) {
+            if ($profileImageFile) {
                 $originalFilename = pathinfo($profileImageFile->getClientOriginalName(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
                 $safeFilename = $slugger->slug($originalFilename);
