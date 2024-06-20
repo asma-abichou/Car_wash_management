@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Form\MyProfileFormType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -70,4 +71,28 @@ class DashboardController extends AbstractController
 
     }
 
+
+    #[Route('/show', name: 'calendar_page')]
+    function showCalendar () : Response
+    {
+        return $this->render('calendar/calendar.html.twig');
+
+    }
+
+    #[Route('/profileList', name: 'show_Profile_saved')]
+    function profileCreated (UserRepository $userRepository) : Response
+    {
+        $clients = $userRepository->findBy(['roles' => 'ROLE_OWNER']);
+        //dd($clients);
+        return $this->render('ClientProfileList/listProfile.html.twig', [
+            'clients' => $clients,
+        ]);
+    }
+
+    #[Route('/mail', name: 'mail_box_page')]
+    function emailBox () : Response
+    {
+        return $this->render('MailBox/mailBox.html.twig');
+
+    }
 }

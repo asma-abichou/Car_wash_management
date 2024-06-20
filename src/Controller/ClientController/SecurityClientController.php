@@ -9,7 +9,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityClientController extends AbstractController
 {
-    #[Route(path: '/customer/login', name: 'login_customer')]
+   /* #[Route(path: '/customer/login', name: 'login')]
     public function loginClient(AuthenticationUtils $authenticationUtils): Response
     {
          if ($this->getUser()) {
@@ -33,5 +33,5 @@ class SecurityClientController extends AbstractController
     public function logout(): void
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
-    }
+    }*/
 }
