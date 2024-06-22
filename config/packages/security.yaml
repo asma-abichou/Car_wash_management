@@ -16,10 +16,7 @@ security:
         main:
             lazy: true
             provider: app_user_provider
-            form_login:
-                login_path: app_login
-                check_path: app_login
-                enable_csrf: true
+            custom_authenticator: App\Security\LoginFormAuthenticator
             logout:
                 path: app_logout
                 # where to redirect after logout
@@ -38,13 +35,14 @@ security:
 
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
-    role_hierarchy:
-        ROLE_SUPER_ADMIN: ROLE_ADMIN
+    #role_hierarchy:
+     #   ROLE_ADMIN: ROLE_OWNER
+     #   ROLE_SUPER_ADMIN: ROLE_ADMIN
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-         - { path: ^/dashboard, roles: ROLE_USER }
-         - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/dashboard, roles: ROLE_OWNER }
+      #   - { path: ^/client, roles: ROLE_CUSTOMER }
         # - { path: ^/profile, roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }
 

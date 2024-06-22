@@ -27,6 +27,7 @@ class DashboardController extends AbstractController
     #[Route('/home', name: 'home_page')]
     function home () : Response
     {
+
         return $this->render('template.html.twig');
 
     }
