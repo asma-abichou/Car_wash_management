@@ -15,6 +15,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 #[Route('/customer')]
 class CustomerController extends AbstractController
 {
+
     #[Route('/home', name: 'customer_home_page')]
     function customerHomePage () : Response
     {

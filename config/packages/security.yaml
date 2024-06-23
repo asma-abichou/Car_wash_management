@@ -42,7 +42,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/dashboard, roles: ROLE_OWNER }
-      #   - { path: ^/client, roles: ROLE_CUSTOMER }
+        # - { path: ^/client, roles: ROLE_CUSTOMER }
         # - { path: ^/profile, roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }
 
