@@ -23,4 +23,11 @@ class CustomerController extends AbstractController
 
     }
 
+    #[Route('/reservation', name: 'customer_reservation_page')]
+    function bookNow () : Response
+    {
+        return $this->render('customer/bookNow.html.twig');
+
+    }
+
 }
