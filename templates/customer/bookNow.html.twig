@@ -15,8 +15,25 @@
                     <label for="address">Adresse :</label>
                     <input type="text" id="address" name="address" autocomplete="address" required>
                 </div>
-                <button type="submit" class="btn">Génerer</button>
+                <button type="submit" name="submit" class="btn">Génerer</button>
             </form>
         </div>
     </div>
+        <div class="map-container">
+            <iframe id="map-iframe" src="" width="100%" height="500"></iframe>
+        </div>
+    <script>
+    const form = document.querySelector('form');
+    const addressInput = document.getElementById('address');
+    const iframe = document.getElementById('map-iframe');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const address = addressInput.value;
+        const encodedAddress = encodeURIComponent(address);
+        const mapUrl = `https://www.google.com/maps?q=${encodedAddress}&output=embed`;
+        iframe.src = mapUrl;
+    });
+</script>
+
 {% endblock %}
