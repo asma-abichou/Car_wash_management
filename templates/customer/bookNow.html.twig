@@ -7,41 +7,16 @@
 {% endblock %}
 {% block body %}
     <div class="reservation-container">
-        <div class="image-container">
-            <img src="{{ asset('images/reservation-image.jpg') }}" alt="Reservation Image">
-        </div>
-
         <div class="form-container">
-        <h1>Reservation</h1>
+            <h1>Coordonnées GPS</h1>
 
-        <form method="post" action="#">
-            <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" name="first_name" required>
-
-            <label for="last_name">Last Name:</label>
-            <input type="text" id="last_name" name="last_name" required>
-
-            <label for="wash_point">Wash Point:</label>
-            <select id="wash_point" name="wash_point" required>
-                <option value="">Lavage prestige</option>
-               {# {% for point in washPoints %}
-
-                {% endfor %}#}
-            </select>
-
-            <label for="wash_type">Wash Type:</label>
-            <select id="wash_type" name="wash_type" required>
-                <option value="regular">Regular Wash</option>
-                <option value="deluxe">Deluxe Wash</option>
-                <option value="premium">Premium Wash</option>
-            </select>
-
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
-
-            <button type="submit">Reserve</button>
-        </form>
+            <form method="post" action="#">
+                <div class="form-group">
+                    <label for="address">Adresse :</label>
+                    <input type="text" id="address" name="address" autocomplete="address" required>
+                </div>
+                <button type="submit" class="btn">Génerer</button>
+            </form>
         </div>
-
     </div>
 {% endblock %}
