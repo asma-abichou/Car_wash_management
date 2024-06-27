@@ -27,15 +27,6 @@ class CustomerController extends AbstractController
     function bookNow () : Response
     {
 
-        if (isset($_POST['submit'])) {
-            $address = $_POST['address'];
-            $addressGps = str_replace(" ", "+", $address);
-
-            // Additional processing if needed
-
-            return new Response($address);
-        }
-
         return $this->render('customer/bookNow.html.twig');
 
     }

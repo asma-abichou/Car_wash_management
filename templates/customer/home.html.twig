@@ -94,7 +94,7 @@
                 <h3 class="header-section-subheading">Best care for your car in the city. Book your washing now!</h3>
                 <div class="text-center">
                   {% if app.user %}
-                    <a href="#" class="btn-ghost-rev">Book Now</a>
+                    <a href="{{ path('customer_reservation_page') }}" class="btn-ghost-rev">Book Now</a>
                   {% else %}
                     <a href="{{ path('app_register_customer') }}" class="btn-ghost-rev">Créer un compte</a>
                   {% endif %}
