@@ -51,10 +51,10 @@
                 .then(data => {
                     data.forEach(carWash => {
                         L.marker([carWash.latitude, carWash.longitude]).addTo(map)
-                            .bindPopup(carWash.name);
+                            .bindPopup(carWash.name + ' (' + carWash.distance.toFixed(2) + ' km)');
                     });
                 })
-            .catch(error => console.error('Error fetching car wash data:', error));
+                .catch(error => console.error('Error fetching car wash data:', error));
         });
     </script>
 {% endblock %}

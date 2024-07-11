@@ -39,21 +39,47 @@ class CustomerController extends AbstractController
     }
     #[Route('/carwashes', name: 'carwashes', methods: 'GET')]
     public function getCarWashes(CarWashPointRepository $carWashPointRepository): JsonResponse
-        {
-            $carWashes = $carWashPointRepository->findAll();
+    {
+        $userLatitude = 35.77799; // Replace with the actual latitude of the user's location
+        $userLongitude = 10.82617; // Replace with the actual longitude of the user's location
+        $maxDistance = 20; // Maximum distance in kilometers
 
-            // Convert car wash objects to an array with only necessary data
-            $data = [];
-            foreach ($carWashes as $carWash) {
+        $carWashes = $carWashPointRepository->findAll();
+        $data = [];
+
+        foreach ($carWashes as $carWash) {
+            $carWashLatitude = $carWash->getLatitude();
+            $carWashLongitude = $carWash->getLongitude();
+            $distance = $this->calculateDistance($userLatitude, $userLongitude, $carWashLatitude, $carWashLongitude);
+
+            if ($distance <= $maxDistance) {
                 $data[] = [
                     'name' => $carWash->getName(),
                     'latitude' => $carWash->getLatitude(),
                     'longitude' => $carWash->getLongitude(),
+                    'distance' => $distance,
                 ];
             }
-
-            return new JsonResponse($data);
         }
+
+        return new JsonResponse($data);
+    }
+
+    private function calculateDistance($lat1, $lon1, $lat2, $lon2): float
+    {
+        $earthRadius = 6371; // Radius of the earth in kilometers
+
+        $latDistance = deg2rad($lat2 - $lat1);
+        $lonDistance = deg2rad($lon2 - $lon1);
+
+        $a = sin($latDistance / 2) * sin($latDistance / 2) +
+            cos(deg2rad($lat1)) * cos(deg2rad($lat2)) *
+            sin($lonDistance / 2) * sin($lonDistance / 2);
+
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+
+        return $earthRadius * $c;
+    }
 
 
    /* #[Route('/api/nearby-wash-cars', name: 'nearby_wash_cars', methods: ['GET'])]
