@@ -15,18 +15,7 @@ class CarWashPointRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, CarWashPoint::class);
     }
-  public function findNearby($lat, $lon)
-    {
-        // Here you can use a custom query to find nearby car wash points
-        $qb = $this->createQueryBuilder('c')
-            ->where('ST_Distance_Sphere(point(c.longitude, c.latitude), point(:lon, :lat)) <= :distance')
-            ->setParameter('lat', $lat)
-            ->setParameter('lon', $lon)
-            ->setParameter('distance', 5000) // example: find within 5km radius
-            ->getQuery();
 
-        return $qb->getResult();
-    }
 
 //    /**
 //     * @return CarWashPoint[] Returns an array of CarWashPoint objects

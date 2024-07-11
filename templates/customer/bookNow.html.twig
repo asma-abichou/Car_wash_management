@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Reservation{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         #map {
             height: 500px;
@@ -11,6 +12,7 @@
         }
     </style>
 {% endblock %}
+
 {% block body %}
     <div class="container">
         <div class="row justify-content-center">
@@ -29,6 +31,30 @@
         </div>
     </div>
 
-    <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBImnElUtRCnC-Q1jL0a0zJAmGAPzs5GGc&libraries=places" ></script>
-    <script src="{{ asset('tools/js/script.js') }}"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var myLatLng = [35.77799, 10.82617];
+
+            var map = L.map('map').setView(myLatLng, 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker(myLatLng).addTo(map)
+                .bindPopup('Your Position')
+                .openPopup();
+
+            fetch('/customer/carwashes')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(carWash => {
+                        L.marker([carWash.latitude, carWash.longitude]).addTo(map)
+                            .bindPopup(carWash.name);
+                    });
+                })
+            .catch(error => console.error('Error fetching car wash data:', error));
+        });
+    </script>
 {% endblock %}

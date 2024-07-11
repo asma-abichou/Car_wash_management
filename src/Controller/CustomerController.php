@@ -37,7 +37,23 @@ class CustomerController extends AbstractController
         return $this->render('customer/bookNow.html.twig');
 
     }
+    #[Route('/carwashes', name: 'carwashes', methods: 'GET')]
+    public function getCarWashes(CarWashPointRepository $carWashPointRepository): JsonResponse
+        {
+            $carWashes = $carWashPointRepository->findAll();
 
+            // Convert car wash objects to an array with only necessary data
+            $data = [];
+            foreach ($carWashes as $carWash) {
+                $data[] = [
+                    'name' => $carWash->getName(),
+                    'latitude' => $carWash->getLatitude(),
+                    'longitude' => $carWash->getLongitude(),
+                ];
+            }
+
+            return new JsonResponse($data);
+        }
 
 
    /* #[Route('/api/nearby-wash-cars', name: 'nearby_wash_cars', methods: ['GET'])]
